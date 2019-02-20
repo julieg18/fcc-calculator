@@ -34,7 +34,7 @@ class Calculator extends React.Component {
             <button class="sq-btns num-btns" id="three">3</button>
             <button class="tall-btns num-btns" id="zero">0</button>
             <button class="sq-btns" id="decimal" data-action="decimal">.</button>
-            <button class="tall-btns" id="equals key-equal" data-action="calculate">=</button>
+            <button class="tall-btns key-equal" id="equals" data-action="calculate">=</button>
           </div>
         </div>
     );
