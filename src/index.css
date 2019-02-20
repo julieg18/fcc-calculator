@@ -6,9 +6,63 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+button {
+  color: white;
+  background-color: #808080;
+}
+
+.num-btns {
+  background-color: #4d4d4d;
+}
+
+
+#buttons {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 200px;
+  height: 230px;
+  display: grid; 
+  grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+  grid-template-areas: "clear clear divide multiply" "seven eight nine subtract" "four five six add" "one two three equals" "zero zero decimal equals";
+  justify-content: space-between;
+  grid-gap: 7px;
+}
+
+#calculator {
+  width: 200px;
+  height: 290px;
+  background-color: #e6e6e6;
+  margin: auto;
+  padding: 10px;
+  border: solid #808080;
+}
+
+#display {
+  width: 200px;
+  height: 50px;
+  background-color: #ccffcc;
+  color: black;
+}
+
+#clear {
+  grid-area: clear;
+  background-color: #ff9933;
+}
+
+#zero {
+  grid-area: zero;
+}
+
+#equals {
+  grid-area: equals;
+}
+
+
