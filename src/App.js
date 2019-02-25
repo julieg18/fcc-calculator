@@ -9,7 +9,9 @@ class App extends Component {
     super()
     this.state = {
       operations: [0],
-      status: "zero",
+      zeroStatus: "zero",
+      symbolStatus: "none",
+      decimalStatus: "none",
     };
     
     this.handleClick = this.handleClick.bind(this);
@@ -21,23 +23,84 @@ class App extends Component {
       case 'clear':
         this.setState({
           operations: [0],
-          status: "zero",
+          zeroStatus: "zero",
+          symbolStatus: "none",
+          decimalStatus: "none",
         });
         break;
       case 'equal':
         this.calculateAnswer();
         break;
+      case '+':
+        this.setState({
+          decimalStatus: 'none',
+        });
+        if (this.state.symbolStatus === "none") {
+          this.getNewOperations(dataValue);
+          this.setState({
+            symbolStatus: "one",
+          });
+        } else {
+          this.replaceLastOperation('+');
+        }
+      break;
+      case '-':
+        this.setState({
+          decimalStatus: 'none',
+        });
+        if (this.state.symbolStatus === "none") {
+          this.getNewOperations(dataValue);
+          this.setState({
+            symbolStatus: "one",
+          });
+        } else {
+          this.replaceLastOperation('-');
+        }
+      break;
+      case '/':
+        this.setState({
+          decimalStatus: "none",
+        });
+        if (this.state.symbolStatus === "none") {
+          this.getNewOperations(dataValue);
+          this.setState({
+            symbolStatus: "one",
+          });
+        } else {
+          this.replaceLastOperation('/');
+        }
+      break;
+      case '*':
+        this.setState({
+          decimalStatus: 'none',
+        });
+        if (this.state.symbolStatus === "none") {
+          this.getNewOperations(dataValue);
+          this.setState({
+            symbolStatus: "one",
+          });
+        } else {
+          this.replaceLastOperation('*');
+        }
+      break;
+      case '.':
+        if (this.state.decimalStatus === "none") {
+          this.getNewOperations(dataValue);
+          this.setState({
+            decimalStatus: 'one',
+          });
+        }
+      break;
       case '0':
-        if (this.state.status === "zero") {  
-          console.log("the if statement was activated")
+        if (this.state.zeroStatus === "zero") {  
           this.setState({ operations: [0], });
         } else {
           this.getNewOperations(dataValue);
         }
         break;
       default:
-      if (this.state.status === "zero") {
-        this.setState({ operations: [], status: "not zero"}, () => {
+      if (this.state.zeroStatus === "zero") {
+        this.setState({ operations: [], zeroStatus: "not zero", symbolStatus: "none", }, () => {
           this.getNewOperations(dataValue);
         })
       } else {
@@ -47,6 +110,16 @@ class App extends Component {
     };
   };
   
+  replaceLastOperation = (symbol) => {
+    let array = this.state.operations;
+    array.pop();
+    array.push(symbol);
+    this.setState({
+      operations: array,
+      symbolStatus: "one",
+    });  
+  }
+
   calculateAnswer = () => {
     let result = this.state.operations.join('')
     if (result) {
@@ -55,7 +128,7 @@ class App extends Component {
       result = String(result);
       this.setState({
         operations: [result],
-        status: 'not zero',
+        zeroStatus: 'not zero',
       });
     };
   };
@@ -66,7 +139,8 @@ class App extends Component {
     });
     this.setState({
       operations: newOperations,
-      status: 'not zero',
+      zeroStatus: 'not zero',
+      symbolStatus: 'none',
     });
   }
   
