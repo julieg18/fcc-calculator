@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background-color: black;
 }
 
 code {
@@ -17,6 +18,13 @@ code {
 button {
   color: white;
   background-color: #808080;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 13px;
 }
 
 .num-btns {
@@ -38,10 +46,9 @@ button {
 
 #calculator {
   width: 200px;
-  height: 290px;
   background-color: #e6e6e6;
   margin: auto;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
   border: solid #808080;
 }
 
@@ -50,6 +57,7 @@ button {
   height: 50px;
   background-color: #ccffcc;
   color: black;
+  font-family: 'Source Code Pro', monospace;
 }
 
 #clear {
