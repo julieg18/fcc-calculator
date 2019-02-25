@@ -161,7 +161,7 @@ class Display extends React.Component {
   render() {
     const screenDisplay = this.props.info.join('');
     return (
-      <div id="display"> {screenDisplay} </div>
+      <div id="display"> <p>{screenDisplay}</p> </div>
     )
   };
 }
