@@ -7,7 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: black;
+  background-color: #ffffff;
 }
 
 code {
@@ -73,4 +73,11 @@ p {
   grid-area: equals;
 }
 
+#header {
+  margin-bottom: 10px;
+}
+
+a {
+  color: black;
+}
 

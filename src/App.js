@@ -147,7 +147,10 @@ class App extends Component {
   render() {
     return (
       <div id="body">
-        <h1>Javascript Calculator</h1>
+        <div id="header">
+          <h1>Javascript Calculator</h1>
+          <small>By <a href="https://github.com/julieg18" target="_blank" rel="noopener noreferrer">Julie Galvan</a></small>
+        </div>
         <div id="calculator">
           <Display info={this.state.operations} />
           <Buttons onClick={this.handleClick} />
